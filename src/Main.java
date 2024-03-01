@@ -1,37 +1,36 @@
 public class Main {
     public static void main(String[] args) {
 
-        Employee emp1 = new Employee();
-        emp1.name = "Айбек Азаматов";
-        emp1.age = 24;
-        emp1.gender = "Мужчина";
+        System.out.println("--ВНАЧАЛЕ--");
+        Employee.printEmployeeAmount();
+        System.out.println();
+
+        Employee emp1 = new Employee("Айбек Азаматов", 24, "Мужчина");
         emp1.printEmployeeInfo();
 
         System.out.println("-----------Директор-------------");
 
-        Director dir1 = new Director();
-        dir1.name = "Айдана Назарова";
-        dir1.age = 32;
-        dir1.gender = "Женщина";
-        dir1.filial = "Дордой";
+        Director.printCompany();
+        Director dir1 = new Director("Айдана Назарова", 32, "Женщина",
+                "Дордой", 8);
         dir1.companyShares = 5;
-        dir1.yearOfWorkExperience = 8;
         dir1.printDirectorInfo();
         dir1.increaseCompanyShares(10);
 
         System.out.println("-----------Менеджер-------------");
-
-        Manager manager1 = new Manager();
-        manager1.name = "Айсулуу Айбекова";
-        manager1.age = 28;
-        manager1.gender = "Женщина";
-        manager1.department = "Финансы";
-        manager1.officeNumber = 321;
+        Manager.salary = 45000;
+        Manager manager1 = new Manager("Айсулуу Айбекова", 28, "Женщина",
+                "Финансы",321);
         manager1.boss = dir1;
         manager1.changeDepartment("Планирование");
         manager1.printManagerInfo();
 
+        Manager manager2 = new Manager();
+        manager2.boss = dir1;
+        manager2.printManagerInfo();
 
+        System.out.println();
+        Employee.printEmployeeAmount();
 
     }
 }
